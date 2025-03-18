@@ -1,14 +1,13 @@
-package Service;
+package com.example.crud_rapido.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
 
-import Entity.Student;
-import Repository.StudentRepository;
+import com.example.crud_rapido.Entity.Student;
+import com.example.crud_rapido.Repository.StudentRepository;
 
 /* NOTACION DE LOS SERVICIOS   */
 @Service
