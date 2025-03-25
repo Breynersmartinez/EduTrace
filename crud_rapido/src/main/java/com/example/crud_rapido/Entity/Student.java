@@ -26,6 +26,8 @@ private String firstName;
 
 private  String lastName;
 
+private String IdCard;
+
 /* Se puede añadir configuraciones para el email con esta notacion */
 @Column(name = "email_adress",unique = true,nullable = false)
 private String email;
