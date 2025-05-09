@@ -25,7 +25,12 @@ public class StudentController {
    
     @Autowired  /* Notacion para enlazar nuestro servicio  */
 
-    private  StudentService studentService;
+    private final StudentService studentService;
+    public StudentController(StudentService studentService)
+    {
+        this.studentService = studentService;
+    }
+
 
 /* Se van a exponer los servicios con: */
     @GetMapping
