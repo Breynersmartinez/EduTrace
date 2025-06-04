@@ -31,8 +31,7 @@ private String firstName;
 @Column  (name = "APELLIDOS")
 private  String lastName;
 
-/* Se puede añadir configuraciones para el email con esta notacion */
-@Column(name = "CORREO",unique = true,nullable = false)
+@Column(name = "CORREO")
 private String email;
 
 }
