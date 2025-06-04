@@ -9,6 +9,6 @@ import com.example.crud_rapido.Entity.Student;
 //esto es una interface
 @Repository
 
-public interface StudentRepository extends JpaRepository<Student, Long>{
+public interface StudentRepository extends JpaRepository<Student, Integer>{
 
 }

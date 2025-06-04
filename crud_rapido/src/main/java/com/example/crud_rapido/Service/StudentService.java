@@ -35,8 +35,8 @@ public class StudentService {
     /* BUSQUEDA DE ELEMENTOS A TRAVES DEL id */
 
     /* Este seria un estudiante y no una lista y esto  seria opcional */
-    public Optional<Student> getStudent(Long id){
-        return studentRepository.findById(id);
+    public Optional<Student> getStudent(int idCard){
+        return studentRepository.findById(idCard);
 
     }
 
@@ -52,10 +52,10 @@ public class StudentService {
 
 
     /* METODO PARA ELIMINAR A TRAVEZ DEL id  */
-    public void delete( Long id){
+    public void delete( int  idCard){
 
         /* Se llama al repositorio y decirle que guarde  la informacion */
-        studentRepository.deleteById(id);
+        studentRepository.deleteById(idCard);
     }
 
 }

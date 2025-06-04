@@ -5,7 +5,7 @@ spring.datasource.driver-class-name = org.postgresql.Driver
 spring.datasource.url=${URL_DB}
 # Nombre del usuario de la base de datos
 spring.datasource.username=${USER_NAME}
-# Contraseña de la base de datos
+# ContraseÃ±a de la base de datos
 spring.datasource.password=${PASSWORD_DB}
 
 #Dialecto que va usar Springboot

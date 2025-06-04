@@ -12,24 +12,27 @@ import lombok.Data;
 @Data
 @Entity
 /* Notacion Crear una tabla con el nombre que deseemos  */
-@Table(name = "tbl_Student")
+@Table(name = "ESTUDIANTES")
 
 public class Student {
 /*Notacion */
 @Id
-/*Y se va a generar de forma automatica */
+
+/*Y se va a generar de forma automatica
 @GeneratedValue(strategy = GenerationType.IDENTITY)
+*/
 
-private long studentId;
+@Column (name = "IDENTIFICACION")
+private int idCard;
 
+@Column  (name = "NOMBRES")
 private String firstName;
 
+@Column  (name = "APELLIDOS")
 private  String lastName;
 
-private String IdCard;
-
 /* Se puede añadir configuraciones para el email con esta notacion */
-@Column(name = "email_adress",unique = true,nullable = false)
+@Column(name = "CORREO",unique = true,nullable = false)
 private String email;
 
 }

@@ -1,0 +1,5 @@
+# Archivo txt donde se encuentra las propiedades de la aplicacion
+TestConection.txt
+
+# Archivo txt donde se encuentra las propiedades de la aplicacion con variables de entorno aplicadas
+VariablesEnt.txt

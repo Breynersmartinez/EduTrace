@@ -44,9 +44,9 @@ return  studentService.getStudents();
 
 
     /* Metodo para consultar Datos  */
-    @GetMapping("/{studentId}")//Voy a decirle que la ruta adicionalmente, va ah recibir  el Id para consultarlo de forma especifica
-    public Optional<Student> getBid(@PathVariable("studentId") Long studentId){
-        return  studentService.getStudent(studentId);
+    @GetMapping("/{idCard}")//Voy a decirle que la ruta adicionalmente, va ah recibir  el Id para consultarlo de forma especifica
+    public Optional<Student> getBid(@PathVariable("idCard") int  idCard){
+        return  studentService.getStudent(idCard);
             }
 
     /* Metodo para actualizacion de datos */
@@ -62,9 +62,9 @@ return  studentService.getStudents();
  
 
     /*Metodo para  Eliminacion de datos  */
-@DeleteMapping("/{studentId}")//cuando utilicen este elemento yo voy a recibir por este lugar el id del estudiante 
-public void saveUpdate(@PathVariable("studentId") Long studentId ){
-    studentService.delete(studentId);
+@DeleteMapping("/{idCard}")//cuando utilicen este elemento yo voy a recibir por este lugar el id del estudiante
+public void saveUpdate(@PathVariable("idCard") int idCard ){
+    studentService.delete(idCard);
 
 }
     
