@@ -34,10 +34,7 @@ public class StudentController {
 
 
 /* Se van a exponer los servicios con: */
-    @GetMapping
-
-    
-
+@GetMapping
 public List<Student> getAll(){/* Esto va a retornar una lista de estudiantes en services, le vamos a decir que 
     aca tambien vamos a tener esta informacion  */
 return  studentService.getStudents();

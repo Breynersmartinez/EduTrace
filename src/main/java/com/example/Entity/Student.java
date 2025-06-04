@@ -8,8 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-/* con esta notacion, No necesitamos agregar los set ni los get con data*/
-@Data
+
 @Entity
 /* Notacion Crear una tabla con el nombre que deseemos  */
 @Table(name = "ESTUDIANTES")
@@ -17,11 +16,6 @@ import lombok.Data;
 public class Student {
 /*Notacion */
 @Id
-
-/*Y se va a generar de forma automatica
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-*/
-
 @Column (name = "IDENTIFICACION")
 private int idCard;
 
@@ -34,4 +28,36 @@ private  String lastName;
 @Column(name = "CORREO")
 private String email;
 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public int getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(int idCard) {
+        this.idCard = idCard;
+    }
 }
