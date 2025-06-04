@@ -1,8 +1,10 @@
-package com.example.crud_rapido.Controller;
+package com.example.Controller;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.example.Entity.Student;
+import com.example.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.crud_rapido.Service.StudentService;
-import com.example.crud_rapido.Entity.Student;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

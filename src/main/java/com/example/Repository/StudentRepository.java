@@ -1,9 +1,10 @@
-package com.example.crud_rapido.Repository;
+package com.example.Repository;
 
+import com.example.Entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.crud_rapido.Entity.Student;
+
 
 /*Se agrega la anotacion repository */
 //esto es una interface

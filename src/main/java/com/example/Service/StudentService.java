@@ -1,13 +1,14 @@
-package com.example.crud_rapido.Service;
+package com.example.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.example.Entity.Student;
+import com.example.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.crud_rapido.Entity.Student;
-import com.example.crud_rapido.Repository.StudentRepository;
+
 
 /* NOTACION DE LOS SERVICIOS   */
 @Service
@@ -18,7 +19,7 @@ public class StudentService {
    @Autowired
 
    /* Definindo lo que seria este repositorio */
-   StudentRepository studentRepository;
+           StudentRepository studentRepository;
 
    /* Creacion de una serie de servicios  */
 
