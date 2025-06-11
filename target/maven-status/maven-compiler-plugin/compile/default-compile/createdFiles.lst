@@ -1,5 +1,10 @@
 com\example\Controller\StudentController.class
-com\example\Service\StudentService.class
+com\example\config\ModelMapperConfig.class
+com\example\audit\Auditable.class
 com\example\Entity\Student.class
+com\example\config\JpaConfig.class
+com\example\Service\StudentService.class
+com\example\dto\StudentDto.class
+com\example\config\SpringFoxConfig.class
 com\example\CrudRapidoApplication.class
 com\example\Repository\StudentRepository.class

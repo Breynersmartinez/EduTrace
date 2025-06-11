@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import com.example.Entity.Student;
 import com.example.Repository.StudentRepository;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +14,23 @@ import org.springframework.stereotype.Service;
 
 /* NOTACION DE LOS SERVICIOS   */
 @Service
-
 public class StudentService {
 
    /* notacion Autowired */ 
-   @Autowired
 
    /* Definindo lo que seria este repositorio */
-           StudentRepository studentRepository;
+       private final   StudentRepository studentRepository;
+
+
+       @Autowired
+       private final ModelMapper modelMapper;
+
+       public StudentService(StudentRepository studentRepository, ModelMapper modelMapper)
+       {
+           this.studentRepository = studentRepository;
+           this.modelMapper = modelMapper;
+       }
+
 
    /* Creacion de una serie de servicios  */
 
