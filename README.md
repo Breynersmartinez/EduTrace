@@ -32,7 +32,7 @@ Ideal para proyectos académicos (ej. **SDN**) o de desarrollo colaborativo, don
 * **Roles de Usuario**: Soporte para estudiantes, líderes y profesores.
 * **Validación de Datos**: Emails únicos, IDs de estudiante obligatorios.
 * **Manejo de Excepciones**: Respuestas claras y estructuradas.
-* **Base de Datos MySQL**: Persistencia de datos en un motor relacional.
+* **Base de Datos PostgresSQL**: Persistencia de datos en un motor relacional.
 * **Documentación con Swagger**: Acceso rápido a la especificación de la API.
 
 Características clave para proyectos académicos:
