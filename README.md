@@ -26,6 +26,19 @@ Esta es una API básica desarrollada en **Spring Boot** que permite realizar ope
 - **Base de Datos MySQL**: Almacena los datos en una base de datos MySQL.
 - **Documentación con Swagger**: Incluye documentación automática de la API.
 
+Características clave del diseño:
+
+Trazabilidad completa - Cada acción queda registrada con timestamp y usuario
+Integración con Git - Sincronización automática de contribuciones de código
+Reportes automatizados - Genera evidencias sin trabajo manual
+Evaluación objetiva - Métricas cuantificables de desempeño
+
+Lo más importante para tu caso:
+
+GitContribution - Rastrea automáticamente quién contribuye código real
+WeeklyReport - Fuerza a todos a documentar su trabajo semanalmente
+PeerEvaluation - Los compañeros se evalúan entre sí anónimamente
+Task tracking - Registra horas estimadas vs. reales por persona
 ---
 
 ## **Tecnologías Utilizadas**

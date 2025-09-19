@@ -1,11 +1,9 @@
 package com.example.dto;
 
-import jakarta.persistence.Column;
-
 import java.io.Serializable;
 
 
-public class StudentDto implements Serializable {
+public class UserDto implements Serializable {
     private int idCard;
     private String firstName;
     private  String lastName;
