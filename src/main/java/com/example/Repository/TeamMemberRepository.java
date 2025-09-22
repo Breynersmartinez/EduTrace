@@ -26,9 +26,5 @@ public interface TeamMemberRepository extends JpaRepository<TeamMember, UUID> {
 
     List<TeamMember> findByRole(TeamMemberRole role);
 
-    @Query("SELECT tm FROM TeamMember tm WHERE tm.project = :project AND tm.role = :role AND tm.isActive = true")
-    List<TeamMember> findByProjectAndRoleAndIsActiveTrue(@Param("project") Project project, @Param("role") TeamMemberRole role);
 
-    @Query("SELECT COUNT(tm) FROM TeamMember tm WHERE tm.project = :project AND tm.isActive = true")
-    long countActiveTeamMembersByProject(@Param("project") Project project);
 }

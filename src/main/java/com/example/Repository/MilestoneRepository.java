@@ -22,12 +22,5 @@ public interface MilestoneRepository extends JpaRepository<Milestone, UUID> {
 
     List<Milestone> findByProjectOrderByDueDateAsc(Project project);
 
-    @Query("SELECT m FROM Milestone m WHERE m.dueDate < :currentDate AND m.status != 'COMPLETED'")
-    List<Milestone> findOverdueMilestones(@Param("currentDate") LocalDateTime currentDate);
 
-    @Query("SELECT COUNT(m) FROM Milestone m WHERE m.project = :project AND m.status = 'COMPLETED'")
-    long countCompletedMilestonesByProject(@Param("project") Project project);
-
-    @Query("SELECT m FROM Milestone m WHERE m.project = :project AND m.dueDate <= :date ORDER BY m.dueDate ASC")
-    List<Milestone> findUpcomingMilestones(@Param("project") Project project, @Param("date") LocalDateTime date);
 }

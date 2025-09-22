@@ -25,18 +25,5 @@ public interface TaskRepository extends JpaRepository<Task, UUID> {
 
     List<Task> findByAssignedToAndStatus(User user, TaskStatus status);
 
-    @Query("SELECT t FROM Task t WHERE t.dueDate < :currentDate AND t.status != 'COMPLETED'")
-    List<Task> findOverdueTasks(@Param("currentDate") LocalDateTime currentDate);
 
-    @Query("SELECT t FROM Task t WHERE t.project = :project AND t.assignedTo = :user")
-    List<Task> findByProjectAndAssignedTo(@Param("project") Project project, @Param("user") User user);
-
-    @Query("SELECT COUNT(t) FROM Task t WHERE t.assignedTo = :user AND t.status = :status")
-    long countByAssignedToAndStatus(@Param("user") User user, @Param("status") TaskStatus status);
-
-    @Query("SELECT t FROM Task t WHERE t.project = :project AND t.priority = :priority ORDER BY t.dueDate ASC")
-    List<Task> findByProjectAndPriorityOrderByDueDate(@Param("project") Project project, @Param("priority") TaskPriority priority);
-
-    @Query("SELECT SUM(t.actualHours) FROM Task t WHERE t.assignedTo = :user AND t.project = :project")
-    Double getTotalHoursByUserAndProject(@Param("user") User user, @Param("project") Project project);
 }

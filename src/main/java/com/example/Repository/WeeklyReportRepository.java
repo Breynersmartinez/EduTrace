@@ -25,17 +25,5 @@ public interface WeeklyReportRepository extends JpaRepository<WeeklyReport, UUID
 
     List<WeeklyReport> findByStatus(ReportStatus status);
 
-    @Query("SELECT wr FROM WeeklyReport wr WHERE wr.project = :project AND wr.weekStartDate >= :startDate AND wr.weekEndDate <= :endDate")
-    List<WeeklyReport> findByProjectAndDateRange(@Param("project") Project project,
-                                                 @Param("startDate") LocalDateTime startDate,
-                                                 @Param("endDate") LocalDateTime endDate);
 
-    @Query("SELECT wr FROM WeeklyReport wr WHERE wr.user = :user AND wr.weekStartDate = :weekStart")
-    Optional<WeeklyReport> findByUserAndWeekStart(@Param("user") User user, @Param("weekStart") LocalDateTime weekStart);
-
-    @Query("SELECT SUM(wr.hoursWorked) FROM WeeklyReport wr WHERE wr.user = :user AND wr.project = :project")
-    Double getTotalHoursByUserAndProject(@Param("user") User user, @Param("project") Project project);
-
-    @Query("SELECT COUNT(wr) FROM WeeklyReport wr WHERE wr.project = :project AND wr.status = 'PENDING'")
-    long countPendingReportsByProject(@Param("project") Project project);
 }

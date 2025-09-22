@@ -56,9 +56,6 @@ import java.util.UUID;
         @Column(name = "professor_feedback", columnDefinition = "TEXT")
         private String professorFeedback;
 
-        @CreatedDate
-        @Column(name = "submitted_at")
-        private LocalDateTime submittedAt;
 
         // Relaciones
         @ManyToOne(fetch = FetchType.LAZY)

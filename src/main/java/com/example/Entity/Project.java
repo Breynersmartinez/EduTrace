@@ -67,13 +67,7 @@ public class Project {
     @Column(name = "auto_github_sync")
     private Boolean autoGithubSync = false;
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
 
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

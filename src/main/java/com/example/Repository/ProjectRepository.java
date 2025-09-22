@@ -21,12 +21,4 @@ public interface ProjectRepository extends JpaRepository<Project, UUID> {
 
     List<Project> findByProfessorAndStatus(User professor, ProjectStatus status);
 
-    @Query("SELECT p FROM Project p WHERE p.endDate < :currentDate AND p.status != 'COMPLETED'")
-    List<Project> findOverdueProjects(@Param("currentDate") LocalDateTime currentDate);
-
-    @Query("SELECT p FROM Project p JOIN p.teamMembers tm WHERE tm.user = :user AND tm.isActive = true")
-    List<Project> findProjectsByTeamMember(@Param("user") User user);
-
-    @Query("SELECT COUNT(p) FROM Project p WHERE p.professor = :professor AND p.status = :status")
-    long countByProfessorAndStatus(@Param("professor") User professor, @Param("status") ProjectStatus status);
 }

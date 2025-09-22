@@ -48,9 +48,7 @@ public class File {
     @Column(nullable = false)
     private FileCategory category;
 
-    @CreatedDate
-    @Column(name = "uploaded_at", nullable = false, updatable = false)
-    private LocalDateTime uploadedAt;
+
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

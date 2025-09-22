@@ -35,9 +35,7 @@ public class TeamMember {
     @Column(name = "is_active")
     private Boolean isActive = true;
 
-    @CreatedDate
-    @Column(name = "joined_at", nullable = false, updatable = false)
-    private LocalDateTime joinedAt;
+
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

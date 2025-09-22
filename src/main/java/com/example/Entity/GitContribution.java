@@ -45,9 +45,7 @@ public class GitContribution {
     @Column(name = "commit_date", nullable = false)
     private LocalDateTime commitDate;
 
-    @CreatedDate
-    @Column(name = "synced_at", nullable = false, updatable = false)
-    private LocalDateTime syncedAt;
+
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

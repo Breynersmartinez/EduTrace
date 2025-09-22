@@ -51,9 +51,7 @@ public class Meeting {
     @Column(columnDefinition = "TEXT")
     private String minutes; // Acta de la reunión
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

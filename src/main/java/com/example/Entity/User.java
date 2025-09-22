@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 /* Notacion Crear una tabla con el nombre que deseemos  */
-@Table(name = "userQA")
+@Table(name = "USUARIOS")
 
 //extends Auditable<String>
 public class User {
@@ -37,8 +37,8 @@ private  String lastName;
 @Column(name = "CORREO")
 private String email;
 
-/*
 
+// foto usuario
     private String avatar;
 
 
@@ -51,17 +51,9 @@ private String email;
     @Column(name = "is_active")
     private Boolean isActive = true;
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
 
 
 
- */
     // Relaciones
     @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -81,6 +73,9 @@ private String email;
     }
 
 
+
+
+    // getters and setters
     public int getIdCard() {
         return idCard;
     }
@@ -111,5 +106,63 @@ private String email;
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getGithubUsername() {
+        return githubUsername;
+    }
+
+    public void setGithubUsername(String githubUsername) {
+        this.githubUsername = githubUsername;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    
+
+    public List<Project> getProfessorProjects() {
+        return professorProjects;
+    }
+
+    public void setProfessorProjects(List<Project> professorProjects) {
+        this.professorProjects = professorProjects;
+    }
+
+    public List<TeamMember> getTeamMemberships() {
+        return teamMemberships;
+    }
+
+    public void setTeamMemberships(List<TeamMember> teamMemberships) {
+        this.teamMemberships = teamMemberships;
+    }
+
+    public List<Task> getAssignedTasks() {
+        return assignedTasks;
+    }
+
+    public void setAssignedTasks(List<Task> assignedTasks) {
+        this.assignedTasks = assignedTasks;
     }
 }

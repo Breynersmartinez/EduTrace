@@ -48,9 +48,7 @@ public class PeerEvaluation {
     @Column(name = "is_anonymous")
     private Boolean isAnonymous = true;
 
-    @CreatedDate
-    @Column(name = "submitted_at", nullable = false, updatable = false)
-    private LocalDateTime submittedAt;
+
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

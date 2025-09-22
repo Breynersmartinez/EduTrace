@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-/*
+
     Optional<User> findByEmail(String email);
 
     List<User> findByRole(UserRole role);
@@ -21,13 +21,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByGithubUsername(String githubUsername);
 
-    @Query("SELECT u FROM User u WHERE u.role = 'STUDENT' AND u.isActive = true")
-    List<User> findActiveStudents();
 
-    @Query("SELECT u FROM User u WHERE u.role = 'PROFESSOR' AND u.isActive = true")
-    List<User> findActiveProfessors();
-
-    @Query("SELECT u FROM User u WHERE LOWER(u.firstName) LIKE LOWER(CONCAT('%', :name, '%')) OR LOWER(u.lastName) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<User> findByNameContainingIgnoreCase(@Param("name") String name); */
 }
 

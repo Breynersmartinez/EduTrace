@@ -58,16 +58,7 @@ public class Task {
     // Tags como cadena separada por comas
     private String tags;
 
-    @Column(name = "completed_at")
-    private LocalDateTime completedAt;
 
-    @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
 
     // Relaciones
     @ManyToOne(fetch = FetchType.LAZY)

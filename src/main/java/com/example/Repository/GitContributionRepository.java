@@ -23,18 +23,6 @@ public interface GitContributionRepository extends JpaRepository<GitContribution
 
     boolean existsByCommitHash(String commitHash);
 
-    @Query("SELECT gc FROM GitContribution gc WHERE gc.project = :project AND gc.commitDate >= :startDate AND gc.commitDate <= :endDate")
-    List<GitContribution> findByProjectAndDateRange(@Param("project") Project project,
-                                                    @Param("startDate") LocalDateTime startDate,
-                                                    @Param("endDate") LocalDateTime endDate);
 
-    @Query("SELECT SUM(gc.linesAdded) FROM GitContribution gc WHERE gc.user = :user AND gc.project = :project")
-    Integer getTotalLinesAddedByUserAndProject(@Param("user") User user, @Param("project") Project project);
-
-    @Query("SELECT COUNT(gc) FROM GitContribution gc WHERE gc.user = :user AND gc.project = :project")
-    long getCommitCountByUserAndProject(@Param("user") User user, @Param("project") Project project);
-
-    @Query("SELECT gc.user, COUNT(gc) as commitCount FROM GitContribution gc WHERE gc.project = :project GROUP BY gc.user ORDER BY commitCount DESC")
-    List<Object[]> getContributionStatsbyProject(@Param("project") Project project);
 }
 
