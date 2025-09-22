@@ -14,13 +14,11 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByEmail(String email);
-
-    List<User> findByRole(UserRole role);
-
+    Optional<User> findByGithubUsername(String githubUsername);
     List<User> findByIsActiveTrue();
 
-    Optional<User> findByGithubUsername(String githubUsername);
+    @Query("SELECT u FROM User u WHERE u.role = :role AND u.isActive = true")
+    List<User> findActiveUsersByRole(@Param("role") String role);
 
 
 }
-

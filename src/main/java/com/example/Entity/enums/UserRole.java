@@ -2,7 +2,5 @@ package com.example.Entity.enums;
 
 
 public enum UserRole {
-    STUDENT,
-    PROFESSOR,
-    ADMIN
+    STUDENT, ADMIN  // Solo estudiantes y admin del sistema
 }

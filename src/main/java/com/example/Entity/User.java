@@ -1,49 +1,43 @@
 package com.example.Entity;
 
-import com.example.Entity.enums.UserRole;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import org.hibernate.annotations.Type;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
-
-import java.time.LocalDateTime;
 import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Getter
+@Setter
+@Builder
 @Entity
 /* Notacion Crear una tabla con el nombre que deseemos  */
 @Table(name = "USUARIOS")
 
 //extends Auditable<String>
 public class User {
-/*Notacion */
-@Id
-@Column (name = "IDENTIFICACION")
-private int idCard;
 
+    @Id
+    @Column(name = "IDENTIFICACION")
+    private Integer idCard;
 
-@Column  (name = "NOMBRES")
-private String firstName;
+    @Column(name = "NOMBRES")
+    private String firstName;
 
+    @Column(name = "APELLIDOS")
+    private String lastName;
 
-@Column  (name = "APELLIDOS")
-private  String lastName;
+    @Email
+    @Column(name = "CORREO")
+    private String email;
 
-@Email
-@Column(name = "CORREO")
-private String email;
-
-
-// foto usuario
     private String avatar;
 
-
+    // SIMPLIFICADO: Solo estudiantes
     @Column(nullable = false)
-    private String role;
+    private String role = "STUDENT";
 
     @Column(name = "github_username")
     private String githubUsername;
@@ -53,11 +47,10 @@ private String email;
 
 
 
-
-    // Relaciones
-    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    // Relaciones (SIN professorProjects)
+    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Project> professorProjects;
+    private List<Project> createdProjects;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -67,15 +60,11 @@ private String email;
     @JsonIgnore
     private List<Task> assignedTasks;
 
-    // Método helper para obtener nombre completo
+    // Método helper
     public String getFullName() {
         return firstName + " " + lastName;
     }
 
-
-
-
-    // getters and setters
     public int getIdCard() {
         return idCard;
     }
@@ -140,15 +129,6 @@ private String email;
         isActive = active;
     }
 
-    
-
-    public List<Project> getProfessorProjects() {
-        return professorProjects;
-    }
-
-    public void setProfessorProjects(List<Project> professorProjects) {
-        this.professorProjects = professorProjects;
-    }
 
     public List<TeamMember> getTeamMemberships() {
         return teamMemberships;

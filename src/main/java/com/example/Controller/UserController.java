@@ -1,63 +1,79 @@
 package com.example.Controller;
-
 import com.example.Entity.User;
 import com.example.Service.UserService;
-import com.example.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
-@RestController /* NOTACION DE RESTCONTROLLER */
-/* Se agrega la version con */
-
-/* De esta manera tenemoos nuestra primera ruta  */
-@RequestMapping(path = "api/v1/students")
+@RestController
+@RequestMapping("/api/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
-    @Autowired  /* Notacion para enlazar nuestro servicio  */
 
     private final UserService userService;
-    public UserController(UserService userService)
-    {
+
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
-
-    /* Se van a exponer los servicios con: */
     @GetMapping
-    public List<User> getAll(){/* Esto va a retornar una lista de estudiantes en services, le vamos a decir que
-    aca tambien vamos a tener esta informacion  */
-        return  userService.getUsers();
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
-
-    /* Metodo para consultar Datos  */
-    @GetMapping("/{idCard}")//Voy a decirle que la ruta adicionalmente, va ah recibir  el Id para consultarlo de forma especifica
-    public Optional<User> getBid(@PathVariable("idCard") int  idCard){
-        return  userService.getUser(idCard);
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Integer id) {
+        return userService.getUserById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    /* Metodo para actualizacion de datos */
+    @GetMapping("/email/{email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+        return userService.getUserByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/active")
+    public ResponseEntity<List<User>> getActiveUsers() {
+        return ResponseEntity.ok(userService.getActiveUsers());
+    }
+
+    @GetMapping("/role/{role}")
+    public ResponseEntity<List<User>> getUsersByRole(@PathVariable String role) {
+        return ResponseEntity.ok(userService.getUsersByRole(role));
+    }
 
     @PostMapping
-
-    /*se pone @RequestBody porque necesito datos
-     y necesito que me manden los datos de un estudiantes(Student)*/
-
-    public void getALL(@RequestBody User user) { //Este no retorna ninguna informacion relevante.
-        userService.saveOrUpdate(user);//Aqui se resiven los datos y se los va ah pasar directamente al servicio
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        try {
+            User savedUser = userService.saveUser(user);
+            return ResponseEntity.ok(savedUser);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
-
-    /*Metodo para  Eliminacion de datos  */
-    @DeleteMapping("/{idCard}")//cuando utilicen este elemento yo voy a recibir por este lugar el id del estudiante
-    public void saveUpdate(@PathVariable("idCard") int idCard ){
-        userService.delete(idCard);
-
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User user) {
+        try {
+            User updatedUser = userService.updateUser(id, user);
+            return ResponseEntity.ok(updatedUser);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deactivateUser(@PathVariable Integer id) {
+        try {
+            userService.deactivateUser(id);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

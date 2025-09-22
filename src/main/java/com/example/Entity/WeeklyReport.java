@@ -53,9 +53,11 @@ import java.util.UUID;
         @Column(nullable = false)
         private ReportStatus status = ReportStatus.DRAFT;
 
-        @Column(name = "professor_feedback", columnDefinition = "TEXT")
-        private String professorFeedback;
-
+        /*
+        // NUEVO: Comentarios de compañeros de equipo (peer review)
+        @Column(name = "peer_comments", columnDefinition = "TEXT")
+        private String peerComments;
+*/
 
         // Relaciones
         @ManyToOne(fetch = FetchType.LAZY)
@@ -73,6 +75,112 @@ import java.util.UUID;
                 inverseJoinColumns = @JoinColumn(name = "task_id")
         )
         private List<Task> tasksCompleted;
+
+
+        public UUID getId() {
+            return id;
+        }
+
+        public void setId(UUID id) {
+            this.id = id;
+        }
+
+        public LocalDateTime getWeekStartDate() {
+            return weekStartDate;
+        }
+
+        public void setWeekStartDate(LocalDateTime weekStartDate) {
+            this.weekStartDate = weekStartDate;
+        }
+
+        public LocalDateTime getWeekEndDate() {
+            return weekEndDate;
+        }
+
+        public void setWeekEndDate(LocalDateTime weekEndDate) {
+            this.weekEndDate = weekEndDate;
+        }
+
+        public Double getHoursWorked() {
+            return hoursWorked;
+        }
+
+        public void setHoursWorked(Double hoursWorked) {
+            this.hoursWorked = hoursWorked;
+        }
+
+        public String getAccomplishments() {
+            return accomplishments;
+        }
+
+        public void setAccomplishments(String accomplishments) {
+            this.accomplishments = accomplishments;
+        }
+
+        public String getObstacles() {
+            return obstacles;
+        }
+
+        public void setObstacles(String obstacles) {
+            this.obstacles = obstacles;
+        }
+
+        public String getNextWeekPlan() {
+            return nextWeekPlan;
+        }
+
+        public void setNextWeekPlan(String nextWeekPlan) {
+            this.nextWeekPlan = nextWeekPlan;
+        }
+
+        public String getEvidenceFiles() {
+            return evidenceFiles;
+        }
+
+        public void setEvidenceFiles(String evidenceFiles) {
+            this.evidenceFiles = evidenceFiles;
+        }
+
+        /*
+        public String getPeerComments() {
+            return peerComments;
+        }
+
+        public void setPeerComments(String peerComments) {
+            this.peerComments = peerComments;
+        }
+
+
+         */
+        public ReportStatus getStatus() {
+            return status;
+        }
+
+        public void setStatus(ReportStatus status) {
+            this.status = status;
+        }
+
+        public Project getProject() {
+            return project;
+        }
+
+        public void setProject(Project project) {
+            this.project = project;
+        }
+
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
+
+        public List<Task> getTasksCompleted() {
+            return tasksCompleted;
+        }
+
+        public void setTasksCompleted(List<Task> tasksCompleted) {
+            this.tasksCompleted = tasksCompleted;
+        }
     }
-
-

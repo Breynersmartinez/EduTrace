@@ -1,10 +1,12 @@
 com\example\Repository\GitContributionRepository.class
 com\example\Entity\enums\MilestoneStatus.class
+com\example\Controller\ProjectController.class
 com\example\Entity\GitContribution.class
 com\example\Entity\Project.class
 com\example\config\JpaConfig.class
+com\example\Repository\MeetingRepository.class
 com\example\Repository\TaskRepository.class
-com\example\dto\UserDto.class
+com\example\dto\CreateUserDTO.class
 com\example\Entity\enums\TaskPriority.class
 com\example\Entity\enums\MeetingType.class
 com\example\Service\UserService.class
@@ -13,6 +15,7 @@ com\example\Entity\enums\UserRole.class
 com\example\Controller\UserController.class
 com\example\Entity\TeamMember.class
 com\example\Entity\enums\ProjectStatus.class
+com\example\Service\WeeklyReportService.class
 com\example\Entity\MeetingAttendance.class
 com\example\Entity\PeerEvaluation.class
 com\example\Repository\PeerEvaluationRepository.class
@@ -22,12 +25,11 @@ com\example\Entity\enums\ProjectType.class
 com\example\Repository\WeeklyReportRepository.class
 com\example\Entity\User.class
 com\example\Repository\TeamMemberRepository.class
+com\example\Service\ProjectService.class
 com\example\Entity\WeeklyReport.class
 com\example\Entity\Task.class
 com\example\Repository\ProjectRepository.class
-com\example\config\SpringFoxConfig.class
 com\example\Entity\Milestone.class
-com\example\config\ModelMapperConfig.class
 com\example\audit\Auditable.class
 com\example\Entity\enums\AttendanceStatus.class
 com\example\Repository\MilestoneRepository.class
@@ -36,3 +38,4 @@ com\example\Repository\UserRepository.class
 com\example\Entity\enums\ReportStatus.class
 com\example\Entity\enums\FileCategory.class
 com\example\CrudRapidoApplication.class
+com\example\dto\UserDTO.class

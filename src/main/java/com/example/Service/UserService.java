@@ -1,73 +1,65 @@
 package com.example.Service;
 
+import com.example.Entity.User;
+import com.example.Repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
-import com.example.Entity.User;
-import com.example.Repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-
-
-/* NOTACION DE LOS SERVICIOS   */
 @Service
 public class UserService {
 
-    /* notacion Autowired */
+    @Autowired
+    private UserRepository userRepository;
 
-    /* Definindo lo que seria este repositorio */
-    private final   UserRepository userRepository;
-
-
-
-
-    public UserService(UserRepository userRepository)
-    {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-
     }
 
-
-    /* Creacion de una serie de servicios  */
-
-
-    /*  Se devuelve una lista de elementos de lo que son los estudiantes. */
-    public List<User> getUsers(){
-
-        /*Retonar toda la informacion.
-        findAll() busca todos los elementos y los retorna
-        */
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    /* BUSQUEDA DE ELEMENTOS A TRAVES DEL id */
-
-    /* Este seria un estudiante y no una lista y esto  seria opcional */
-    public Optional<User> getUser(int idCard){
-        return userRepository.findById(idCard);
-
+    public Optional<User> getUserById(Integer id) {
+        return userRepository.findById(id);
     }
 
-
-    /* GUARDAR Y ACTUALIZAR EN UN SOLO METODO */
-
-    /* Va a recibir a un estudiante */
-    public void saveOrUpdate(User user){
-
-        /* Se llama al repositorio y decirle que guarde  la informacion */
-        userRepository.save(user);
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
-
-    /* METODO PARA ELIMINAR A TRAVEZ DEL id  */
-    public void delete( int  idCard){
-
-        /* Se llama al repositorio y decirle que guarde  la informacion */
-        userRepository.deleteById(idCard);
+    public List<User> getActiveUsers() {
+        return userRepository.findByIsActiveTrue();
     }
 
+    public List<User> getUsersByRole(String role) {
+        return userRepository.findActiveUsersByRole(role);
+    }
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public User updateUser(Integer id, User updatedUser) {
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setFirstName(updatedUser.getFirstName());
+                    user.setLastName(updatedUser.getLastName());
+                    user.setEmail(updatedUser.getEmail());
+                    user.setGithubUsername(updatedUser.getGithubUsername());
+                    user.setAvatar(updatedUser.getAvatar());
+                    return userRepository.save(user);
+                })
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    }
+
+    public void deactivateUser(Integer id) {
+        userRepository.findById(id)
+                .map(user -> {
+                    user.setActive(false);
+                    return userRepository.save(user);
+                })
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+    }
 }

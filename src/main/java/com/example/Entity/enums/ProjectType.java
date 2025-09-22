@@ -1,6 +1,13 @@
 package com.example.Entity.enums;
 
 public enum ProjectType {
-    SDN, WEB, MOBILE, DATA_SCIENCE, OTHER
-
+    WEB_APPLICATION,
+    SOFTWARE,
+    MOBILE_APP,
+    DESKTOP_APP,
+    API,
+    DATA_ANALYSIS,
+    RESEARCH,
+    OTHER
 }
+

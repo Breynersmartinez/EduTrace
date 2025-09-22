@@ -1,10 +1,10 @@
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\audit\Auditable.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\config\JpaConfig.java
-D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\config\ModelMapperConfig.java
-D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\config\SpringFoxConfig.java
+D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Controller\ProjectController.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Controller\UserController.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\CrudRapidoApplication.java
-D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\dto\UserDto.java
+D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\dto\CreateUserDTO.java
+D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\dto\UserDTO.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Entity\enums\AttendanceStatus.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Entity\enums\FileCategory.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Entity\enums\MeetingType.java
@@ -28,6 +28,7 @@ D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Entity\TeamMember
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Entity\User.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Entity\WeeklyReport.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\GitContributionRepository.java
+D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\MeetingRepository.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\MilestoneRepository.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\PeerEvaluationRepository.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\ProjectRepository.java
@@ -35,4 +36,6 @@ D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\TaskRe
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\TeamMemberRepository.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\UserRepository.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Repository\WeeklyReportRepository.java
+D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Service\ProjectService.java
 D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Service\UserService.java
+D:\Usuario\Downloads\API_estudiantes\src\main\java\com\example\Service\WeeklyReportService.java
