@@ -1,7 +1,7 @@
 
 ---
 
-# **API de Gestión de Proyectos y Estudiantes**
+# **EduTrace_API (Gestión de Proyectos y Estudiantes)**
 
 Esta API desarrollada en **Spring Boot** permite gestionar estudiantes, proyectos, equipos y tareas.
 Su objetivo es dar **trazabilidad al trabajo en equipo**, asegurando que cada integrante tenga evidencia de sus avances y responsabilidades.

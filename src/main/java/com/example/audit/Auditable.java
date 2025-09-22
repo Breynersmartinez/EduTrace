@@ -21,6 +21,7 @@ public class Auditable<U> {
     @Column(name = "created_by", updatable = false)
     private U createdBy;
 
+
     @CreatedDate
     @Column(name = "created_date", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
