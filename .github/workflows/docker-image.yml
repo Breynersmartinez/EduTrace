@@ -1,0 +1,17 @@
+name: bcrypt2025-springboot
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build Docker image from subdirectory
+      run: docker build bcrypt2025-springboot --file EduTrace_Api/Dockerfile --tag my-image-name:$(date +%s)
