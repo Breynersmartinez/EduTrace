@@ -1,4 +1,4 @@
-name: bcrypt2025-springboot
+name: EduTrace_Api
 
 on:
   push:
@@ -14,4 +14,4 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Build Docker image from subdirectory
-      run: docker build bcrypt2025-springboot --file EduTrace_Api/Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build EduTrace_Api --file EduTrace_Api/Dockerfile --tag my-image-name:$(date +%s)
