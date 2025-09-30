@@ -16,11 +16,4 @@ import java.util.UUID;
 @Repository
 public interface MilestoneRepository extends JpaRepository<Milestone, UUID> {
 
-    List<Milestone> findByProject(Project project);
-
-    List<Milestone> findByProjectAndStatus(Project project, MilestoneStatus status);
-
-    List<Milestone> findByProjectOrderByDueDateAsc(Project project);
-
-
 }

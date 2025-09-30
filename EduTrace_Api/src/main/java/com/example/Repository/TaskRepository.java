@@ -16,16 +16,5 @@ import java.util.UUID;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, UUID> {
-    List<Task> findByProject(Project project);
-    List<Task> findByAssignedTo(User assignedTo);
-    List<Task> findByStatus(TaskStatus status);
-    List<Task> findByPriority(TaskPriority priority);
 
-    @Query("SELECT t FROM Task t WHERE t.assignedTo.idCard = :userId AND t.status = :status")
-    List<Task> findByUserIdAndStatus(@Param("userId") Integer userId, @Param("status") TaskStatus status);
-
-    @Query("SELECT t FROM Task t WHERE t.project.id = :projectId AND t.dueDate BETWEEN :startDate AND :endDate")
-    List<Task> findTasksByProjectAndDateRange(@Param("projectId") UUID projectId,
-                                              @Param("startDate") LocalDateTime startDate,
-                                              @Param("endDate") LocalDateTime endDate);
 }

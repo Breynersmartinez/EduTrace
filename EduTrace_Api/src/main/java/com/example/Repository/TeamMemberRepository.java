@@ -14,13 +14,5 @@ import java.util.UUID;
 
 @Repository
 public interface TeamMemberRepository extends JpaRepository<TeamMember, UUID> {
-    List<TeamMember> findByProject(Project project);
-    List<TeamMember> findByUser(User user);
-    List<TeamMember> findByProjectAndIsActiveTrue(Project project);
 
-    Optional<TeamMember> findByProjectAndUser(Project project, User user);
-
-    @Query("SELECT tm FROM TeamMember tm WHERE tm.project.id = :projectId AND tm.role = :role AND tm.isActive = true")
-    List<TeamMember> findActiveTeamMembersByProjectAndRole(@Param("projectId") UUID projectId,
-                                                           @Param("role") TeamMemberRole role);
 }

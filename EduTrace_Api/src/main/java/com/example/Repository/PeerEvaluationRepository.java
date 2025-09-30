@@ -14,13 +14,5 @@ import java.util.UUID;
 @Repository
 public interface PeerEvaluationRepository extends JpaRepository<PeerEvaluation, UUID> {
 
-    List<PeerEvaluation> findByProject(Project project);
-
-    List<PeerEvaluation> findByEvaluated(User evaluated);
-
-    List<PeerEvaluation> findByEvaluator(User evaluator);
-
-    List<PeerEvaluation> findByProjectAndPeriod(Project project, String period);
-
 
 }

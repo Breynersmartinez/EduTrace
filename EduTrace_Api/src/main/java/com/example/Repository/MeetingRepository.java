@@ -13,14 +13,4 @@ import java.util.UUID;
 
 @Repository
 public interface MeetingRepository extends JpaRepository<Meeting, UUID> {
-    List<Meeting> findByProject(Project project);
-    List<Meeting> findByType(MeetingType type);
-
-    @Query("SELECT m FROM Meeting m WHERE m.project.id = :projectId AND m.scheduledDate BETWEEN :startDate AND :endDate")
-    List<Meeting> findByProjectAndDateRange(@Param("projectId") UUID projectId,
-                                            @Param("startDate") LocalDateTime startDate,
-                                            @Param("endDate") LocalDateTime endDate);
-
-    @Query("SELECT m FROM Meeting m WHERE m.scheduledDate >= :currentDate ORDER BY m.scheduledDate ASC")
-    List<Meeting> findUpcomingMeetings(@Param("currentDate") LocalDateTime currentDate);
-}
+   }

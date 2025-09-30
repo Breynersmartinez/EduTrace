@@ -12,17 +12,4 @@ import java.util.UUID;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, UUID> {
-    // CAMBIADO: Buscar por creador en lugar de profesor
-    List<Project> findByCreatedBy(User createdBy);
-    List<Project> findByStatus(ProjectStatus status);
-
-    @Query("SELECT p FROM Project p JOIN p.teamMembers tm WHERE tm.user.idCard = :userId AND tm.isActive = true")
-    List<Project> findProjectsByUserId(@Param("userId") Integer userId);
-
-    @Query("SELECT p FROM Project p WHERE p.createdBy.idCard = :creatorId AND p.status = :status")
-    List<Project> findByCreatorAndStatus(@Param("creatorId") Integer creatorId, @Param("status") ProjectStatus status);
-
-    // NUEVOS: Para estudiantes
-    @Query("SELECT p FROM Project p WHERE p.createdBy.idCard = :userId")
-    List<Project> findProjectsCreatedByUser(@Param("userId") Integer userId);
-}
+  }

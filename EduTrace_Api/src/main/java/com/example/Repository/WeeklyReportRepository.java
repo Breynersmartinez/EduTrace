@@ -15,16 +15,4 @@ import java.util.UUID;
 
 @Repository
 public interface WeeklyReportRepository extends JpaRepository<WeeklyReport, UUID> {
-    List<WeeklyReport> findByProject(Project project);
-    List<WeeklyReport> findByUser(User user);
-    List<WeeklyReport> findByStatus(ReportStatus status);
-
-    @Query("SELECT wr FROM WeeklyReport wr WHERE wr.user.idCard = :userId AND wr.weekStartDate = :weekStart")
-    Optional<WeeklyReport> findByUserAndWeek(@Param("userId") Integer userId,
-                                             @Param("weekStart") LocalDateTime weekStart);
-
-    @Query("SELECT wr FROM WeeklyReport wr WHERE wr.project.id = :projectId AND wr.weekStartDate BETWEEN :startDate AND :endDate")
-    List<WeeklyReport> findByProjectAndDateRange(@Param("projectId") UUID projectId,
-                                                 @Param("startDate") LocalDateTime startDate,
-                                                 @Param("endDate") LocalDateTime endDate);
 }
