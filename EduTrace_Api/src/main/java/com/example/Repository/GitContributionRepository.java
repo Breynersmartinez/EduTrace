@@ -13,4 +13,5 @@ import java.util.UUID;
 
 @Repository
 public interface GitContributionRepository extends JpaRepository<GitContribution, UUID> {
+
    }
